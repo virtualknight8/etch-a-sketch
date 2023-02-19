@@ -1,8 +1,11 @@
 
-const cntr = document.querySelector('#container');
+const main = document.querySelector('main');
 
 function gridCreator(rc=16){
-    
+    const cntr = document.createElement('div');
+    cntr.setAttribute("id", "container");
+    main.append(cntr);
+
 
     for(let i=0; i<rc; i++){
         const row = document.createElement('div');
@@ -17,39 +20,29 @@ function gridCreator(rc=16){
         }
         cntr.appendChild(row);
     }
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(block=>{
+        block.addEventListener('mouseover', function(){
+      const red = Math.floor(Math.random() * 256);
+      const green = Math.floor(Math.random() * 256);
+      const blue = Math.floor(Math.random() * 256);
+      const randomColor = `rgb(${red}, ${green}, ${blue})`;
+      this.style.backgroundColor = randomColor;
+        })
+    });
 }
 
 gridCreator();
 
-
-const cell = document.querySelectorAll('.cell');
-const rows = document.querySelectorAll('.row');
-
-cell.forEach(block=>{
-    block.addEventListener('mouseover', function(){
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
-  const randomColor = `rgb(${red}, ${green}, ${blue})`;
-  this.style.backgroundColor = randomColor;
-    })
-});
-
-
-
 const btn = document.querySelector('button');
 btn.addEventListener('click', function(){
-    //
-   
-   /* cell.forEach(cld=>{
-    
-        cld.remove();
-    });*/
-    rows.forEach(row=>{
-        row.remove();
-    });
+    const cntr = document.querySelector('#container');
+    cntr.remove();
 
-    let gInput = prompt();
-    gridCreator(gInput);
+    let gInput = prompt("Keep it below 100");
     
+    if(gInput<100)
+        gridCreator(gInput);
+    else
+        alert('I told you to keep it below one hundred');
 });
