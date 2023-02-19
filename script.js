@@ -30,6 +30,15 @@ function gridCreator(rc=16){
       this.style.backgroundColor = randomColor;
         })
     });
+
+    /*const gl = cells.length;
+    cells.forEach((cell, index)=>{
+            cell.addEventListener('mouseenter', () => {
+                // calculate the opacity
+                const opacity = (index + 1) / gl;
+                // set the background color with the calculated opacity
+                cell.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;})
+    })*/
 }
 
 gridCreator();
