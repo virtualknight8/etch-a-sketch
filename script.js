@@ -36,13 +36,20 @@ gridCreator();
 
 const btn = document.querySelector('button');
 btn.addEventListener('click', function(){
-    const cntr = document.querySelector('#container');
-    cntr.remove();
+   
 
     let gInput = prompt("Keep it below 100");
     
-    if(gInput<100)
+    if(gInput<100){
+        const cntr = document.querySelector('#container');
+        cntr.remove();
         gridCreator(gInput);
-    else
+    }
+    else if(gInput>100)
         alert('I told you to keep it below one hundred');
-});
+    /*else if(!gInput)
+        alert("That's just nothing");*/
+    else
+        alert('Dimensions are supposed to be only integers.');     
+           
+}); 

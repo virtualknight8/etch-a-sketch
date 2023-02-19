@@ -10,7 +10,8 @@ body{
     align-items: center;
     justify-content: center;
     padding: 30px;
-    background-color: gray;
+    background-color: rgb(44, 42, 42);
+    
       
 }
 
@@ -19,7 +20,6 @@ body{
     display: flex;
     flex-direction: column;
     background-color: white;
-    /*height: 1000px;*/
 }
 
 .row{
@@ -31,7 +31,7 @@ body{
 .cell{
     height: 20px;
     width: 20px;
-    border: 2px solid black;
+    
 }
 
 button{
